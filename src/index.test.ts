@@ -23,7 +23,7 @@ describe('parseUnitValue', () => {
   });
 });
 
-describe('initClampInterpolation', () => {
+describe('createClamper', () => {
   const clamperLikeDefault = createClamper('320px', '1920px');
   test('behaves like the default', () => {
     expect(clamperLikeDefault('16px', '24px')).toBe('clamp(1rem, 0.9rem + 0.5vw, 1.5rem)');

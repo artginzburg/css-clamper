@@ -46,12 +46,20 @@ function toFixedNumberDefault(value: number) {
 type AbsoluteUnitValue = `${number}${'px' | 'rem'}`;
 
 /**
- * As seen in https://min-max-calculator.9elements.com or https://royalfig.github.io/fluid-typography-calculator/
+ * Set the minimum and maximum [font] sizes in `px` or `rem`.
+ * Same for viewport limits (optional).
+ * The resulting size will scale proportionally to the client's viewport width, while staying within the specified limits.
+ *
+ * For example, if the viewport is bounded from 320px to 1920px (default), and the size is limited from 16px to 32px, then when the client's window width is 1120px — the base size will be 24px.
+ *
+ * @see https://github.com/artginzburg/css-clamper#how
  */
 export function clampify(
   minValue: AbsoluteUnitValue,
   maxValue: AbsoluteUnitValue,
+  /** Default: `320px` */
   minViewport: AbsoluteUnitValue = '320px',
+  /** Default: `1920px` */
   maxViewport: AbsoluteUnitValue = '1920px',
 ) {
   const [minValuePx, maxValuePx, minViewportPx, maxViewportPx] = [
@@ -98,6 +106,13 @@ function shiftDecimalPointRightByTwo(num: number) {
   return parseFloat((100 * num).toFixed(2));
 }
 
+/**
+ * Predefine the viewport limits for your needs, and use the returned function in your code.
+ *
+ * It is the same as putting the viewport limits in the 3rd and 4th parameters of {@link clampify()} every time, but wrapped up for convenience.
+ *
+ * @see https://github.com/artginzburg/css-clamper#custom-viewport-limits
+ */
 export function createClamper(minViewport: AbsoluteUnitValue, maxViewport: AbsoluteUnitValue) {
   return function clamper(
     minValue: Parameters<typeof clampify>[0],
