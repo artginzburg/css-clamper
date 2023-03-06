@@ -2,6 +2,16 @@
 [![GitHub build and test Status](https://img.shields.io/github/actions/workflow/status/artginzburg/css-clamper/coverage.yml?label=build%20%26%20test)](https://github.com/artginzburg/css-clamper/actions/workflows/coverage.yml)
 [![GitHub NPM Publish Status](https://img.shields.io/github/actions/workflow/status/artginzburg/css-clamper/publish.yml?label=publish)](https://github.com/artginzburg/css-clamper/actions/workflows/publish.yml)
 
+# css-clamper
+
+> Get a responsive size for anything CSS from a min and a max.
+
+## Install
+
+```sh
+npm install css-clamper
+```
+
 ## What?
 
 Responsive sizes.
