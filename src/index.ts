@@ -34,7 +34,11 @@ function toPx(value: string) {
   );
 }
 
-/** @todo decide whether this statement needs `?` after `+value`. Coverage shows it's an uncovered logic branch, but I don't know how to cover it since `+value` never returns a nullish value (not to confuse with a falsy value) */
+/**
+ * Use the default fraction digits to format the number, or return NaN if the value is not a number.
+ *
+ * @todo Coverage shows that `?.` after `+value` is an uncovered logic branch. But there is no way to make this branch covered without exporting this function, just because of the context of where this function is used.
+ */
 function toFixedNumberDefault(value: number) {
   return +value?.toFixed(defaultFractionDigits);
 }
