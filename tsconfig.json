@@ -15,6 +15,9 @@
     "isolatedModules": true,
     "declaration": true,
     "outDir": "./dist"
+
+    // Optimizations (for size reduction)
+    // "removeComments": true
   },
   "include": ["./src"]
 }
