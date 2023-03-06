@@ -9,7 +9,8 @@
     "fluid typography",
     "min-max-value interpolation",
     "responsive size",
-    "clampify"
+    "clampify",
+    "css-in-js"
   ],
   "repository": "artginzburg/css-clamper",
   "funding": "https://github.com/artginzburg/css-clamper?sponsor=1",
