@@ -44,7 +44,7 @@ type RemOrPxValue = `${number}${'px' | 'rem'}`;
 /**
  * As seen in https://min-max-calculator.9elements.com or https://royalfig.github.io/fluid-typography-calculator/
  */
-export function clampInterpolation(
+export function clampify(
   minValue: RemOrPxValue,
   maxValue: RemOrPxValue,
   minViewport: RemOrPxValue = '320px',
@@ -88,11 +88,11 @@ function shiftDecimalPointRightByTwo(num: number) {
   return parseFloat((100 * num).toFixed(2));
 }
 
-export function initClampInterpolation(minViewport: RemOrPxValue, maxViewport: RemOrPxValue) {
-  return function clampInterpolate(
-    minValue: Parameters<typeof clampInterpolation>[0],
-    maxValue: Parameters<typeof clampInterpolation>[1],
+export function createClamper(minViewport: RemOrPxValue, maxViewport: RemOrPxValue) {
+  return function clamper(
+    minValue: Parameters<typeof clampify>[0],
+    maxValue: Parameters<typeof clampify>[1],
   ) {
-    return clampInterpolation(minValue, maxValue, minViewport, maxViewport);
+    return clampify(minValue, maxValue, minViewport, maxViewport);
   };
 }
