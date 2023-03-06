@@ -37,10 +37,10 @@ function toPx(value: string) {
 /**
  * Use the default fraction digits to format the number, or return NaN if the value is not a number.
  *
- * @todo Coverage shows that `?.` after `+value` is an uncovered logic branch. But there is no way to make this branch covered without exporting this function, just because of the context of where this function is used.
+ * - Previously had `?` (optional chaining operator) after `+value`, but this was removed due to the coverage report saying that it's an uncovered logic branch. The function is used in such conditions that would never allow for this logic branch to be covered.
  */
 function toFixedNumberDefault(value: number) {
-  return +value?.toFixed(defaultFractionDigits);
+  return +value.toFixed(defaultFractionDigits);
 }
 
 type AbsoluteUnitValue = `${number}${'px' | 'rem'}`;
