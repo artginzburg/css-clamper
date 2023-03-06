@@ -52,7 +52,7 @@ type AbsoluteUnitValue = `${number}${'px' | 'rem'}`;
  *
  * For example, if the viewport is bounded from 320px to 1920px (default), and the size is limited from 16px to 32px, then when the client's window width is 1120px — the base size will be 24px.
  *
- * @see https://github.com/artginzburg/css-clamper#how
+ * @see https://github.com/artginzburg/css-clamper#usage
  */
 export function clampify(
   minValue: AbsoluteUnitValue,

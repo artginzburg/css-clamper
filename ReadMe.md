@@ -12,26 +12,6 @@
 npm install css-clamper
 ```
 
-## What?
-
-Responsive sizes.
-
-Set the minimum and maximum [font] sizes in `px` or `rem`. Same for viewport limits. The resulting size will scale proportionally to the client's viewport width, while staying within the specified limits.
-
-For example, if the viewport is bounded from 320px to 1920px (default), and the size is limited from 16px to 32px, then when the client's window width is 1120px — the base size will be 24px.
-
-## Why CSS-in-JS?
-
-My last projects are 100% TypeScript. No CSS. No SCSS. Just [PostCSS][postcss] and [Browserslist][browserslist] under the hood. It is the best front-end decision I've made so far, and I believe modern front-end should be built this way.
-
-## Where?
-
-Use with CSS-in-JS libraries, like [styled-components](https://styled-components.com/).
-
-## Performance
-
-Please use Static Generation / SSR (bundled with Next.js), or [Babel macros](https://babeljs.io/blog/2017/09/11/zero-config-with-babel-macros) (bundled with CRA). Otherwise, all the calculations will run on your client's browser, impacting the load time (though the impact of this particular library is negligible).
-
 ## Usage
 
 [`clampify()`](./src/index.ts#L57) accepts `minSize` and `maxSize` as numbers with `rem` or `px` units.
@@ -56,11 +36,31 @@ const fontSizeMobileToTablet = clampify(
 //=> clamp(1rem, 0.643rem + 1.79vw, 1.5rem)
 ```
 
+## What?
+
+Responsive sizes.
+
+Set the minimum and maximum [font] sizes in `px` or `rem`. Same for viewport limits. The resulting size will scale proportionally to the client's viewport width, while staying within the specified limits.
+
+For example, if the viewport is bounded from 320px to 1920px (default), and the size is limited from 16px to 32px, then when the client's window width is 1120px — the base size will be 24px.
+
+## Where?
+
+Use with CSS-in-JS libraries, like [styled-components](https://styled-components.com/).
+
+### Why CSS-in-JS?
+
+My last projects are 100% TypeScript. No CSS. No SCSS. Just [PostCSS][postcss] and [Browserslist][browserslist] under the hood. It is the best front-end decision I've made so far, and I believe modern front-end should be built this way.
+
 ## Notes
 
 - `clamp()` can be used with anything, not just `font-size`.
 - You can swap `minSize` and `maxSize` to invert the responsiveness direction (max size on min viewport, min size on max viewport), e.g. for height tricks. This library takes care of that.
 - `clamp()` accepts negative values, e.g. for margins or absolute positioning.
+
+## Performance
+
+Please use Static Generation / SSR (bundled with Next.js), or [Babel macros](https://babeljs.io/blog/2017/09/11/zero-config-with-babel-macros) (bundled with CRA). Otherwise, all the calculations will run on your client's browser, impacting the load time (though the impact of this particular library is negligible).
 
 ## Custom viewport limits
 
