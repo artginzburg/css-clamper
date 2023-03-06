@@ -32,16 +32,20 @@ Use with CSS-in-JS libraries, like [styled-components](https://styled-components
 
 Please use Static Generation / SSR (bundled with Next.js), or [Babel macros](https://babeljs.io/blog/2017/09/11/zero-config-with-babel-macros) (bundled with CRA). Otherwise, all the calculations will run on your client's browser, impacting the load time (though the impact of this particular library is negligible).
 
-## How?
+## Usage
 
-The [`clampify()`](./src/index.ts#L57) function accepts `minSize`, `maxSize`, `minLimit`, `maxLimit` all of type RemOrPxValue (`${number}${'px' | 'rem'}`).
+[`clampify()`](./src/index.ts#L57) accepts `minSize` and `maxSize` as numbers with `rem` or `px` units.
 
 ```js
 import { clampify } from 'css-clamper';
 
 const fontSizeResponsive = clampify('16px', '1.5rem');
-// Outputs: clamp(1rem, 0.9rem + 0.5vw, 1.5rem)
+//=> clamp(1rem, 0.9rem + 0.5vw, 1.5rem)
+```
 
+`minLimit` and `maxLimit` can be used to override the standard viewport.
+
+```js
 const fontSizeMobileToTablet = clampify(
   '16px',
   '1.5rem',
@@ -49,7 +53,7 @@ const fontSizeMobileToTablet = clampify(
   '320px',
   '768px',
 );
-// Outputs: clamp(1rem, 0.643rem + 1.79vw, 1.5rem)
+//=> clamp(1rem, 0.643rem + 1.79vw, 1.5rem)
 ```
 
 ## Notes
