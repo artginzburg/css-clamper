@@ -1,6 +1,6 @@
 {
   "name": "css-clamper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Cozy responsive sizes for CSS-in-JS",
   "keywords": [
     "css clamp",
@@ -20,6 +20,7 @@
     "email": "ginzburg.arthur@gmail.com",
     "url": "https://ginzburg.art"
   },
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
