@@ -11,6 +11,8 @@
     "responsive size",
     "clampify"
   ],
+  "repository": "artginzburg/css-clamper",
+  "funding": "https://github.com/artginzburg/css-clamper?sponsor=1",
   "license": "MIT",
   "author": {
     "name": "Art Ginzburg",
