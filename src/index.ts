@@ -50,10 +50,12 @@ export function clampify(
   minViewport: RemOrPxValue = '320px',
   maxViewport: RemOrPxValue = '1920px',
 ) {
-  const minValuePx = toPx(minValue);
-  const maxValuePx = toPx(maxValue);
-  const minViewportPx = toPx(minViewport);
-  const maxViewportPx = toPx(maxViewport);
+  const [minValuePx, maxValuePx, minViewportPx, maxViewportPx] = [
+    minValue,
+    maxValue,
+    minViewport,
+    maxViewport,
+  ].map(toPx);
 
   const variablePart = (maxValuePx - minValuePx) / (maxViewportPx - minViewportPx);
 
@@ -62,20 +64,18 @@ export function clampify(
   );
 
   /** Sorted values, so that the actual min and max are always at the start and the end respectively. Otherwise, `clamp()` stops working when values are swapped. */
-  const sizesArr = [minValue, maxValue]
+  const [minValueWithRem, maxValueWithRem] = [minValue, maxValue]
     .map(toRem)
     .sort()
     .map((size) => `${size}rem` as const);
 
-  const result = buildCssClamp(
-    sizesArr[0],
-    `${constant ? (`${constant}rem + ` as const) : ''}${shiftDecimalPointRightByTwo(
-      variablePart,
-    )}vw`,
-    sizesArr[1],
-  );
+  const variablePartWithVw = `${shiftDecimalPointRightByTwo(variablePart)}vw` as const;
 
-  return result;
+  return buildCssClamp(
+    minValueWithRem,
+    `${constant ? (`${constant}rem + ` as const) : ''}${variablePartWithVw}`,
+    maxValueWithRem,
+  );
 }
 
 type RemValue = `${number}rem`;
