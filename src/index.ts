@@ -61,12 +61,20 @@ export function clampify(
     numPxToRem(maxValuePx - maxViewportPx * variablePart).toFixed(defaultFractionDigits),
   );
 
+  const minInRem = toRem(minValue);
+  const maxInRem = toRem(maxValue);
+
+  const sizesArr = [minInRem, maxInRem].map((size) => `${size}rem` as const);
+
+  const isMinGreaterThanMax = minInRem > maxInRem;
+  if (isMinGreaterThanMax) sizesArr.reverse();
+
   const result = buildCssClamp(
-    `${toRem(minValue)}rem`,
+    sizesArr[0],
     `${constant ? (`${constant}rem + ` as const) : ''}${shiftDecimalPointRightByTwo(
       variablePart,
     )}vw`,
-    `${toRem(maxValue)}rem`,
+    sizesArr[1],
   );
 
   return result;
