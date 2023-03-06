@@ -23,7 +23,7 @@ cd packages/css-clamper
 
 pnpm i
 
-pnpm dev
+pnpm dev # Starts the build in watch mode.
 
 # Leave this terminal running for Hot Reload.
 ```
