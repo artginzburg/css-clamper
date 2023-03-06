@@ -22,7 +22,7 @@ Please use Static Generation / SSR (bundled with Next.js), or [Babel macros](htt
 
 ## How?
 
-The [`clampify()`](./src/index.ts#L47) function accepts `minSize`, `maxSize`, `minLimit`, `maxLimit` all of type RemOrPxValue (`${number}${'px' | 'rem'}`).
+The [`clampify()`](./src/index.ts#L57) function accepts `minSize`, `maxSize`, `minLimit`, `maxLimit` all of type RemOrPxValue (`${number}${'px' | 'rem'}`).
 
 ```js
 import { clampify } from 'css-clamper';
