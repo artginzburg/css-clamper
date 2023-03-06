@@ -80,10 +80,6 @@ Refer to [docs/maintain.md](./docs/maintain.md)
 - https://min-max-calculator.9elements.com — Another simplistic online demo (not as feature-rich).
 - https://royalfig.github.io/fluid-typography-calculator/ — A reasonably good online demo.
 
-## TODOs
-
-- Add runtime warnings on incorrect values in dev mode
-
 <!-- Link definitions: -->
 
 [browserslist]: https://browsersl.ist
