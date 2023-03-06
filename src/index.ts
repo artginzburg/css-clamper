@@ -61,13 +61,11 @@ export function clampify(
     numPxToRem(maxValuePx - maxViewportPx * variablePart).toFixed(defaultFractionDigits),
   );
 
-  const minInRem = toRem(minValue);
-  const maxInRem = toRem(maxValue);
-
-  const sizesArr = [minInRem, maxInRem].map((size) => `${size}rem` as const);
-
-  const isMinGreaterThanMax = minInRem > maxInRem;
-  if (isMinGreaterThanMax) sizesArr.reverse();
+  /** Sorted values, so that the actual min and max are always at the start and the end respectively. Otherwise, `clamp()` stops working when values are swapped. */
+  const sizesArr = [minValue, maxValue]
+    .map(toRem)
+    .sort()
+    .map((size) => `${size}rem` as const);
 
   const result = buildCssClamp(
     sizesArr[0],
