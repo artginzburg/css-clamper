@@ -39,16 +39,16 @@ function toFixedNumberDefault(value: number) {
   return +value?.toFixed(defaultFractionDigits);
 }
 
-type RemOrPxValue = `${number}${'px' | 'rem'}`;
+type AbsoluteUnitValue = `${number}${'px' | 'rem'}`;
 
 /**
  * As seen in https://min-max-calculator.9elements.com or https://royalfig.github.io/fluid-typography-calculator/
  */
 export function clampify(
-  minValue: RemOrPxValue,
-  maxValue: RemOrPxValue,
-  minViewport: RemOrPxValue = '320px',
-  maxViewport: RemOrPxValue = '1920px',
+  minValue: AbsoluteUnitValue,
+  maxValue: AbsoluteUnitValue,
+  minViewport: AbsoluteUnitValue = '320px',
+  maxViewport: AbsoluteUnitValue = '1920px',
 ) {
   const [minValuePx, maxValuePx, minViewportPx, maxViewportPx] = [
     minValue,
@@ -94,7 +94,7 @@ function shiftDecimalPointRightByTwo(num: number) {
   return parseFloat((100 * num).toFixed(2));
 }
 
-export function createClamper(minViewport: RemOrPxValue, maxViewport: RemOrPxValue) {
+export function createClamper(minViewport: AbsoluteUnitValue, maxViewport: AbsoluteUnitValue) {
   return function clamper(
     minValue: Parameters<typeof clampify>[0],
     maxValue: Parameters<typeof clampify>[1],
