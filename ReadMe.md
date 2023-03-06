@@ -1,4 +1,4 @@
-[![build-test](../../.github/badges/coverage.svg)](../../.github/badges/coverage.svg)
+[![build-test](./.github/badges/coverage.svg)](./.github/badges/coverage.svg)
 
 ## What?
 
