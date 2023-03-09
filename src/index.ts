@@ -1,49 +1,11 @@
-function isRem(value: string) {
-  return value.endsWith('rem');
-}
-
-function parseUnitValue(value: string) {
-  const matched = value.match(/(-?[\d.]+)([a-z%]*)/);
-  if (!matched) {
-    return { unit: 'unknown', num: 0 };
-  }
-  const unit = matched.at(-1);
-  const num = Number(matched.at(-2));
-  return { unit, num };
-}
-
-const defaultFractionDigits = 3;
-
-const amountOfPxInRem = 16;
-
-function numPxToRem(num: number) {
-  return num / amountOfPxInRem;
-}
-function numRemToPx(num: number) {
-  return num * amountOfPxInRem;
-}
-
-function toRem(value: string) {
-  return toFixedNumberDefault(
-    isRem(value) ? parseUnitValue(value).num : numPxToRem(parseUnitValue(value).num),
-  );
-}
-function toPx(value: string) {
-  return toFixedNumberDefault(
-    isRem(value) ? numRemToPx(parseUnitValue(value).num) : parseUnitValue(value).num,
-  );
-}
-
-/**
- * Use the default fraction digits to format the number, or return NaN if the value is not a number.
- *
- * - Previously had `?` (optional chaining operator) after `+value`, but this was removed due to the coverage report saying that it's an uncovered logic branch. The function is used in such conditions that would never allow for this logic branch to be covered.
- */
-function toFixedNumberDefault(value: number) {
-  return +value.toFixed(defaultFractionDigits);
-}
-
-type AbsoluteUnitValue = `${number}${'px' | 'rem'}`;
+import {
+  AbsoluteUnitValue,
+  buildCssClamp,
+  defaultFractionDigits,
+  numPxToRem,
+  toPx,
+  toRem,
+} from './internals';
 
 /**
  * Set the minimum and maximum [font] sizes in `px` or `rem`.
@@ -88,14 +50,6 @@ export function clampify(
     `${constant ? (`${constant}rem + ` as const) : ''}${variablePartWithVw}`,
     maxValueWithRem,
   );
-}
-
-type RemValue = `${number}rem`;
-type VwValue = `${number}vw`;
-type ClampPreferredValue = `${`${RemValue} + ` | ''}${VwValue}`;
-
-function buildCssClamp(min: RemValue, preferred: ClampPreferredValue, max: RemValue) {
-  return `clamp(${min}, ${preferred}, ${max})` as const;
 }
 
 /**
