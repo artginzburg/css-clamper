@@ -41,5 +41,6 @@
     "jest-config": "^29.4.3",
     "ts-jest": "^29.0.5",
     "typescript": "^4.9.5"
-  }
+  },
+  "sideEffects": false
 }
