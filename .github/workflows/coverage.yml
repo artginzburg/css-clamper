@@ -44,3 +44,25 @@ jobs:
           # coverage-summary-path: './coverage/coverage-summary.json'
           protected-branches: '["main",  "develop"]'
           badges-directory: './.github/badges'
+
+  coverage:
+    needs: [test]
+    name: coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+
+      - uses: paambaati/codeclimate-action@v2.2.4
+        with:
+          coverageCommand: pnpm test
