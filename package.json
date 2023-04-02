@@ -28,6 +28,9 @@
     "dist",
     "!dist/*.test.*"
   ],
+  "engines": {
+    "node": ">=16.6.0"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
