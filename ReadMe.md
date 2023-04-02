@@ -1,7 +1,7 @@
 [![coverage](./.github/badges/coverage.svg)](https://github.com/artginzburg/css-clamper/actions/workflows/coverage.yml)
 [![GitHub build and test Status](https://img.shields.io/github/actions/workflow/status/artginzburg/css-clamper/coverage.yml?label=build%20%26%20test)](https://github.com/artginzburg/css-clamper/actions/workflows/coverage.yml)
 [![GitHub NPM Publish Status](https://img.shields.io/github/actions/workflow/status/artginzburg/css-clamper/publish.yml?label=publish)](https://github.com/artginzburg/css-clamper/actions/workflows/publish.yml)
-![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/artginzburg/css-clamper) <!-- TODO add link to Mend Renovate Dependency Dashboard here -->
+[![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/artginzburg/css-clamper)](https://github.com/artginzburg/css-clamper/issues/8)
 [![wakatime](https://wakatime.com/badge/github/artginzburg/css-clamper.svg)](https://wakatime.com/badge/github/artginzburg/css-clamper)
 
 # css-clamper
