@@ -66,6 +66,6 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - uses: paambaati/codeclimate-action@v2.2.4
+      - uses: paambaati/codeclimate-action@v3.2.0
         with:
           coverageCommand: pnpm test
