@@ -41,7 +41,7 @@ jobs:
       # Coverage badges will be updated on any branch except protected
       # branches 'develop' and 'main' and on a pull requests
       - name: Test angular action
-        uses: emibcn/clover-coverage-badges-action@v1
+        uses: emibcn/clover-coverage-badges-action@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # coverage-summary-path: './coverage/coverage-summary.json'
