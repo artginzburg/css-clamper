@@ -4,22 +4,22 @@ import { clampify, createClamper } from './';
 
 describe('interpolate with default viewport', () => {
   test('calculates pixel values', () => {
-    expect(clampify('16px', '24px')).toBe('clamp(1rem, 0.9rem + 0.5vw, 1.5rem)');
-    expect(clampify('16px', '96px')).toBe('clamp(1rem, 5vw, 6rem)');
+    testClampify('16px', '24px', '(1rem, 0.9rem + 0.5vw, 1.5rem)');
+    testClampify('16px', '96px', '(1rem, 5vw, 6rem)');
   });
   test('calculates rem values', () => {
-    expect(clampify('1rem', '1.5rem')).toBe('clamp(1rem, 0.9rem + 0.5vw, 1.5rem)');
-    expect(clampify('1rem', '6rem')).toBe('clamp(1rem, 5vw, 6rem)');
+    testClampify('1rem', '1.5rem', '(1rem, 0.9rem + 0.5vw, 1.5rem)');
+    testClampify('1rem', '6rem', '(1rem, 5vw, 6rem)');
   });
   test('swaps params to go from max to min', () => {
-    expect(clampify('16px', '5px')).toBe('clamp(0.313rem, 1.137rem + -0.69vw, 1rem)');
+    testClampify('16px', '5px', '(0.313rem, 1.137rem + -0.69vw, 1rem)');
   });
 });
 
 describe('parseUnitValue', () => {
   test('returns zeroes if provided with unsupported input (empty string)', () => {
     // @ts-expect-error specifically testing unsupported values.
-    expect(clampify('', '')).toBe('clamp(0rem, 0vw, 0rem)');
+    testClampify('', '', '(0rem, 0vw, 0rem)');
   });
 });
 
@@ -29,6 +29,11 @@ describe('createClamper', () => {
     expect(clamperLikeDefault('16px', '24px')).toBe('clamp(1rem, 0.9rem + 0.5vw, 1.5rem)');
   });
 });
+
+function testClampify(minValue: Parameters<typeof clampify>[0], maxValue: Parameters<typeof clampify>[1], expected: string) {
+  const actual = clampify(minValue, maxValue);
+  expect(actual).toBe(`clamp${expected}`);
+}
 
 /** Use just as you use `test` or `it`. Whenever you're going to implement the covered feature — just change `todo` to `it`. */
 // function todo(testName: string, fn: Parameters<typeof test>[1], timeout?: number) {
