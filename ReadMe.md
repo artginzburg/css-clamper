@@ -14,7 +14,7 @@ npm install css-clamper
 
 ## Usage
 
-[`clampify()`](./src/index.ts#L57) accepts `minSize` and `maxSize` as numbers with `rem` or `px` units.
+[`clampify()`](./src/index.ts#L19) accepts `minSize` and `maxSize` as numbers with `rem` or `px` units.
 
 ```js
 import { clampify } from 'css-clamper';
