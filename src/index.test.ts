@@ -14,6 +14,12 @@ describe('interpolate with default viewport', () => {
   test('swaps params to go from max to min', () => {
     testClampify('16px', '5px', '(0.313rem, 1.137rem + -0.69vw, 1rem)');
   });
+  test('calculates with negative values', () => {
+    // TODO? swap values (back?) if they are negative. Otherwise, the final size just gets stuck with the maxValue, like clamp is not even here.
+    testClampify('-200px', '-1px', '(-12.5rem, -14.988rem + 12.44vw, -0.063rem)');
+    testClampify('-16px', '0px', '(-1rem, -1.2rem + 1vw, 0rem)'); // Here everything is OK already, but later...
+    testClampify('-16px', '-1px', '(-1rem, -1.188rem + 0.94vw, -0.063rem)'); // as soon as we go from 0px to -1px — it works incorrectly.
+  });
 });
 
 describe('parseUnitValue', () => {
