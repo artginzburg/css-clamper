@@ -30,7 +30,7 @@ describe('createClamper', () => {
   });
 });
 
-function testClampify(minValue: Parameters<typeof clampify>[0], maxValue: Parameters<typeof clampify>[1], expected: string) {
+function testClampify(minValue: Parameters<typeof clampify>[0], maxValue: Parameters<typeof clampify>[1], expected: `(${string}, ${string}, ${string})`) {
   const actual = clampify(minValue, maxValue);
   expect(actual).toBe(`clamp${expected}`);
 }
