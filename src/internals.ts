@@ -1,4 +1,4 @@
-import 'core-js/features/array/at';
+import { internalArrayAt } from './internalArrayAt';
 
 const amountOfPxInRem = 16;
 export const defaultFractionDigits = 3;
@@ -12,8 +12,8 @@ export function parseUnitValue(value: string) {
   if (!matched) {
     return { unit: 'unknown', num: 0 };
   }
-  const unit = matched.at(-1);
-  const num = Number(matched.at(-2));
+  const unit = internalArrayAt(matched, -1);
+  const num = Number(internalArrayAt(matched, -2));
   return { unit, num };
 }
 
