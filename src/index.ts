@@ -40,7 +40,7 @@ export function clampify(
   /** Sorted values, so that the actual min and max are always at the start and the end respectively. Otherwise, `clamp()` stops working when values are swapped. */
   const [minValueWithRem, maxValueWithRem] = [minValue, maxValue]
     .map(toRem)
-    .sort()
+    .sort((a, b) => a - b)
     .map((size) => `${size}rem` as const);
 
   const variablePartWithVw = `${shiftDecimalPointRightByTwo(variablePart)}vw` as const;

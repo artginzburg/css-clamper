@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683907612323" clover="3.2.0">
-  <project timestamp="1683907612323" name="All files">
-    <metrics statements="36" coveredstatements="36" conditionals="9" coveredconditionals="9" methods="13" coveredmethods="13" elements="58" coveredelements="58" complexity="0" loc="36" ncloc="36" packages="1" files="2" classes="2"/>
+<coverage generated="1683908636004" clover="3.2.0">
+  <project timestamp="1683908636004" name="All files">
+    <metrics statements="37" coveredstatements="37" conditionals="9" coveredconditionals="9" methods="14" coveredmethods="14" elements="60" coveredelements="60" complexity="0" loc="37" ncloc="37" packages="1" files="2" classes="2"/>
     <file name="index.ts" path="/Users/artginzburg/css-clamper/src/index.ts">
-      <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+      <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
       <line num="1" count="2" type="stmt"/>
       <line num="19" count="2" type="stmt"/>
-      <line num="23" count="21" type="cond" truecount="1" falsecount="0"/>
-      <line num="25" count="21" type="cond" truecount="1" falsecount="0"/>
-      <line num="27" count="11" type="stmt"/>
-      <line num="34" count="11" type="stmt"/>
-      <line num="36" count="11" type="stmt"/>
-      <line num="41" count="11" type="stmt"/>
-      <line num="44" count="22" type="stmt"/>
-      <line num="46" count="11" type="stmt"/>
-      <line num="48" count="11" type="stmt"/>
-      <line num="60" count="11" type="stmt"/>
+      <line num="23" count="25" type="cond" truecount="1" falsecount="0"/>
+      <line num="25" count="25" type="cond" truecount="1" falsecount="0"/>
+      <line num="27" count="13" type="stmt"/>
+      <line num="34" count="13" type="stmt"/>
+      <line num="36" count="13" type="stmt"/>
+      <line num="41" count="13" type="stmt"/>
+      <line num="43" count="13" type="stmt"/>
+      <line num="44" count="26" type="stmt"/>
+      <line num="46" count="13" type="stmt"/>
+      <line num="48" count="13" type="stmt"/>
+      <line num="60" count="13" type="stmt"/>
       <line num="70" count="2" type="stmt"/>
       <line num="71" count="1" type="stmt"/>
       <line num="75" count="1" type="stmt"/>
@@ -25,24 +26,24 @@
       <line num="1" count="2" type="stmt"/>
       <line num="3" count="2" type="stmt"/>
       <line num="4" count="2" type="stmt"/>
-      <line num="7" count="78" type="stmt"/>
+      <line num="7" count="90" type="stmt"/>
       <line num="10" count="2" type="stmt"/>
-      <line num="11" count="81" type="stmt"/>
-      <line num="12" count="81" type="cond" truecount="1" falsecount="0"/>
+      <line num="11" count="93" type="stmt"/>
+      <line num="12" count="93" type="cond" truecount="1" falsecount="0"/>
       <line num="13" count="4" type="stmt"/>
-      <line num="15" count="77" type="stmt"/>
-      <line num="16" count="77" type="stmt"/>
-      <line num="17" count="77" type="stmt"/>
+      <line num="15" count="89" type="stmt"/>
+      <line num="16" count="89" type="stmt"/>
+      <line num="17" count="89" type="stmt"/>
       <line num="20" count="2" type="stmt"/>
-      <line num="21" count="29" type="stmt"/>
+      <line num="21" count="35" type="stmt"/>
       <line num="24" count="13" type="stmt"/>
       <line num="27" count="2" type="stmt"/>
-      <line num="28" count="22" type="stmt"/>
+      <line num="28" count="26" type="stmt"/>
       <line num="32" count="2" type="stmt"/>
-      <line num="33" count="56" type="stmt"/>
-      <line num="44" count="78" type="stmt"/>
+      <line num="33" count="64" type="stmt"/>
+      <line num="44" count="90" type="stmt"/>
       <line num="53" count="2" type="stmt"/>
-      <line num="54" count="11" type="stmt"/>
+      <line num="54" count="13" type="stmt"/>
     </file>
   </project>
 </coverage>
