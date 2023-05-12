@@ -1,3 +1,5 @@
+import 'core-js/features/array/at';
+
 const amountOfPxInRem = 16;
 export const defaultFractionDigits = 3;
 

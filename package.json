@@ -38,6 +38,9 @@
     "start": "jest --watchAll",
     "test": "jest"
   },
+  "dependencies": {
+    "core-js": "^3.30.2"
+  },
   "devDependencies": {
     "@jest/globals": "^29.4.3",
     "jest": "^29.4.3",
