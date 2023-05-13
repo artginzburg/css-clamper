@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import { internalArrayAt } from './internalArrayAt';
+import { internalArrayAt } from './internalArrayAt.js';
 
 describe('internalArrayAt', () => {
   const testArray = [...Array(10)].map((val, index) => index + 1);

@@ -5,7 +5,7 @@ import {
   numPxToRem,
   toPx,
   toRem,
-} from './internals';
+} from './internals.js';
 
 /**
  * Set the minimum and maximum [font] sizes in `px` or `rem`.

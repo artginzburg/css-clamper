@@ -1,6 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
 
-import { clampify, createClamper } from './';
+import { clampify, createClamper } from './index.js';
 
 describe('interpolate with default viewport', () => {
   test('calculates pixel values', () => {

@@ -1,7 +1,7 @@
 import { describe, expect, test } from '@jest/globals';
 
-import { clampify } from './';
-import { AbsoluteUnitValue, buildCssClamp, parseUnitValue, toPx } from './internals';
+import { clampify } from './index.js';
+import { AbsoluteUnitValue, buildCssClamp, parseUnitValue, toPx } from './internals.js';
 
 describe('what is it gonna be on viewport', () => {
   test('predicts from pixel values', () => {

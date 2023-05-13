@@ -1,4 +1,4 @@
-import { internalArrayAt } from './internalArrayAt';
+import { internalArrayAt } from './internalArrayAt.js';
 
 const amountOfPxInRem = 16;
 export const defaultFractionDigits = 3;
