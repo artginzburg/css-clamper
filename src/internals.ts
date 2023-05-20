@@ -26,6 +26,7 @@ function numRemToPx(num: number) {
 
 export function toRem(value: string) {
   return toFixedNumberDefault(
+    // isRem(value) here never evaluates to true because of the current logic of the code. That may change in the future. I'm gonna polish the algorithms after everything works better than expected.
     isRem(value) ? parseUnitValue(value).num : numPxToRem(parseUnitValue(value).num),
   );
 }
