@@ -16,7 +16,7 @@ npm install css-clamper
 
 ## Usage
 
-[`clampify()`](./src/index.ts#L19) accepts `minSize` and `maxSize` as numbers with `rem` or `px` units.
+[`clampify()`][clampify()] accepts `minSize` and `maxSize` as numbers with `rem` or `px` units.
 
 ```js
 import { clampify } from 'css-clamper';
@@ -79,6 +79,50 @@ Now use that `clamper()` function in your code. It is the same as putting the vi
 
 > In the future, this library should be able to automatically scale the limits of your Figma layouts to match the standard viewport widths. This behavior will probably be opt-in. I'm also not sure about the maximum viewport limit since it's specific to whether the project should scale up for 4K and larger screens.
 
+## Advanced usage
+
+### Extending (scaling) viewport limits linearly
+
+[`clampify()`][clampify()] also has the 5th and 6th parameters, `extendMinViewport` and `extendMaxViewport`. When specified, the sizes you specify will scale linearly, according to the relations between `minViewport` and `extendMinViewport`, as well as between `maxViewport` and `extendMaxViewport`.
+
+How it works in a real example:
+
+Suppose you're provided with non-standard sized layouts, like 390px for mobile and 1512px on desktop. But you want your adaptive layout to support a wider range of screen sizes, e.g. from 320px to 1920px (which `css-clamper` considers the standard, by the way). In the past, you would either ask the designer to adapt the layouts, or scale the sizes yourself using a calculator or an approximation. Now, you can do this:
+
+```js
+const fontSizeExtended = clampify(
+  '16px',
+  '24px',
+  undefined, // assumed 320px
+  undefined, // assumed 1920px
+  '120px', // extendMinViewport
+  '2120px', // extendMaxViewport
+);
+// Would output the same as this:
+const fontSizeExtendedManually = clampify('15px', '25px', '120px', '2120px');
+
+// Notice the difference in the initially specified sizes:
+//   minSize — 16px vs 15px
+//   maxSize — 24px vs 25px
+```
+
+You can create a clamper with the same concept:
+
+```js
+export const clamperExtended = createClamper(
+  '390px', // Figma layout width for mobile
+  '1512px', // Figma layout width for desktop
+  '320px', // extendMinViewport — desired supported width for mobile
+  '1920px', // extendMaxViewport — desired supported width for desktop
+);
+```
+
+Now it's really simple for you to build fluid typography no matter if the initial layout was aware of the concept and was aware of the standard screen sizes.
+
+To summarize, what you know is — on a screen 390px wide the heading font-size should be 18px, and on a screen 1512px wide the same font-size should be 30px. That's what you provide to the library, also specifying the requirement to support devices from 320px to 1920px in width. And it handles all the calculations for you!
+
+> On 390px viewport, the font-size will still be 18px, and on 1512px it'll still be 30px, but on 320px, the font-size will become close to 17px, and on 1920px it'll be close to 34px.
+
 ## Testing and maintaining
 
 Refer to [docs/maintain.md](./docs/maintain.md)
@@ -102,3 +146,4 @@ Refer to [docs/maintain.md](./docs/maintain.md)
 
 [browserslist]: https://browsersl.ist
 [postcss]: https://postcss.org
+[clampify()]: ./src/index.ts#L20

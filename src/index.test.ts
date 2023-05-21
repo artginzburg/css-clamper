@@ -34,6 +34,11 @@ describe('createClamper', () => {
   test('behaves like the default', () => {
     expect(clamperLikeDefault('16px', '24px')).toBe('clamp(1rem, 0.9rem + 0.5vw, 1.5rem)');
   });
+
+  const clamperLikeDefaultExtended = createClamper('320px', '1920px', '120px', '2120px');
+  test('extended behaves like the default extended', () => {
+    expect(clamperLikeDefaultExtended('16px', '24px')).toBe(clampify('15px', '25px', '120px', '2120px'))
+  })
 });
 
 function testClampify(minValue: Parameters<typeof clampify>[0], maxValue: Parameters<typeof clampify>[1], expected: `(${string}, ${string}, ${string})`) {

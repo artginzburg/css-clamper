@@ -1,54 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683937369172" clover="3.2.0">
-  <project timestamp="1683937369172" name="All files">
-    <metrics statements="39" coveredstatements="39" conditionals="11" coveredconditionals="11" methods="15" coveredmethods="15" elements="65" coveredelements="65" complexity="0" loc="39" ncloc="39" packages="1" files="3" classes="3"/>
-    <file name="index.ts" path="/Users/artginzburg/css-clamper/src/index.ts">
-      <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
-      <line num="1" count="2" type="stmt"/>
-      <line num="19" count="2" type="stmt"/>
-      <line num="23" count="25" type="cond" truecount="1" falsecount="0"/>
-      <line num="25" count="25" type="cond" truecount="1" falsecount="0"/>
-      <line num="27" count="13" type="stmt"/>
-      <line num="34" count="13" type="stmt"/>
-      <line num="36" count="13" type="stmt"/>
-      <line num="41" count="13" type="stmt"/>
-      <line num="43" count="13" type="stmt"/>
-      <line num="44" count="26" type="stmt"/>
-      <line num="46" count="13" type="stmt"/>
-      <line num="48" count="13" type="stmt"/>
-      <line num="60" count="13" type="stmt"/>
-      <line num="70" count="2" type="stmt"/>
-      <line num="71" count="1" type="stmt"/>
-      <line num="75" count="1" type="stmt"/>
-    </file>
-    <file name="internalArrayAt.ts" path="/Users/artginzburg/css-clamper/src/internalArrayAt.ts">
-      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-      <line num="1" count="3" type="stmt"/>
-      <line num="2" count="182" type="cond" truecount="2" falsecount="0"/>
-    </file>
-    <file name="internals.ts" path="/Users/artginzburg/css-clamper/src/internals.ts">
-      <metrics statements="21" coveredstatements="21" conditionals="5" coveredconditionals="5" methods="8" coveredmethods="8"/>
-      <line num="1" count="2" type="stmt"/>
-      <line num="3" count="2" type="stmt"/>
-      <line num="4" count="2" type="stmt"/>
-      <line num="7" count="90" type="stmt"/>
-      <line num="10" count="2" type="stmt"/>
-      <line num="11" count="93" type="stmt"/>
-      <line num="12" count="93" type="cond" truecount="1" falsecount="0"/>
-      <line num="13" count="4" type="stmt"/>
-      <line num="15" count="89" type="stmt"/>
-      <line num="16" count="89" type="stmt"/>
-      <line num="17" count="89" type="stmt"/>
-      <line num="20" count="2" type="stmt"/>
-      <line num="21" count="35" type="stmt"/>
-      <line num="24" count="13" type="stmt"/>
-      <line num="27" count="2" type="stmt"/>
-      <line num="28" count="26" type="stmt"/>
-      <line num="32" count="2" type="stmt"/>
-      <line num="33" count="64" type="stmt"/>
-      <line num="44" count="90" type="stmt"/>
-      <line num="53" count="2" type="stmt"/>
-      <line num="54" count="13" type="stmt"/>
-    </file>
+<coverage generated="1684646419703" clover="3.2.0">
+  <project timestamp="1684646419703" name="All files">
+    <metrics statements="68" coveredstatements="68" conditionals="17" coveredconditionals="17" methods="26" coveredmethods="26" elements="111" coveredelements="111" complexity="0" loc="68" ncloc="68" packages="2" files="6" classes="6"/>
+    <package name="src">
+      <metrics statements="54" coveredstatements="54" conditionals="13" coveredconditionals="13" methods="24" coveredmethods="24"/>
+      <file name="clampify.ts" path="/Users/artginzburg/css-clamper/src/clampify.ts">
+        <metrics statements="25" coveredstatements="25" conditionals="4" coveredconditionals="4" methods="11" coveredmethods="11"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="24" count="37" type="cond" truecount="1" falsecount="0"/>
+        <line num="26" count="38" type="cond" truecount="1" falsecount="0"/>
+        <line num="30" count="22" type="stmt"/>
+        <line num="37" count="22" type="stmt"/>
+        <line num="46" count="22" type="stmt"/>
+        <line num="48" count="22" type="stmt"/>
+        <line num="50" count="22" type="stmt"/>
+        <line num="58" count="22" type="stmt"/>
+        <line num="60" count="22" type="stmt"/>
+        <line num="64" count="22" type="stmt"/>
+        <line num="65" count="22" type="stmt"/>
+        <line num="67" count="22" type="stmt"/>
+        <line num="68" count="22" type="stmt"/>
+        <line num="69" count="22" type="stmt"/>
+        <line num="74" count="22" type="stmt"/>
+        <line num="75" count="44" type="stmt"/>
+        <line num="76" count="22" type="stmt"/>
+        <line num="77" count="44" type="stmt"/>
+        <line num="81" count="22" type="stmt"/>
+        <line num="85" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="89" count="22" type="stmt"/>
+        <line num="99" count="22" type="stmt"/>
+      </file>
+      <file name="createClamper.ts" path="/Users/artginzburg/css-clamper/src/createClamper.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="38" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/artginzburg/css-clamper/src/index.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="23" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+      </file>
+      <file name="internalArrayAt.ts" path="/Users/artginzburg/css-clamper/src/internalArrayAt.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="284" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="internals.ts" path="/Users/artginzburg/css-clamper/src/internals.ts">
+        <metrics statements="20" coveredstatements="20" conditionals="3" coveredconditionals="3" methods="7" coveredmethods="7"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="133" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="142" type="stmt"/>
+        <line num="12" count="142" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="140" type="stmt"/>
+        <line num="16" count="140" type="stmt"/>
+        <line num="17" count="140" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="66" type="stmt"/>
+        <line num="24" count="31" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="28" count="133" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="39" count="177" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
+        <line num="49" count="22" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features">
+      <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <file name="extendSize.ts" path="/Users/artginzburg/css-clamper/src/features/extendSize.ts">
+        <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="11" count="22" type="stmt"/>
+        <line num="13" count="22" type="cond" truecount="3" falsecount="0"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="30" count="22" type="stmt"/>
+        <line num="39" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="41" count="9" type="stmt"/>
+        <line num="42" count="9" type="stmt"/>
+        <line num="43" count="9" type="stmt"/>
+        <line num="44" count="9" type="stmt"/>
+        <line num="45" count="9" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>
