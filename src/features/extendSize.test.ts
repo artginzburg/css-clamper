@@ -8,6 +8,11 @@ describe('extend sizes to match arbitrary viewport limits', () => {
       clampify('15px', '25px', '120px', '2120px'),
     );
   });
+  test('extends in one direction', () => {
+    expect(clampify('16px', '24px', undefined, undefined, `${320 - 200}px`)).toBe(
+      clampify('15px', '24px', `${320 - 200}px`)
+    )
+  })
   test('narrow (backwards)', () => {
     expect(clampify('16px', '24px', undefined, undefined, `${320 + 200}px`, `${1920 - 200}px`)).toBe(
       clampify('17px', '23px', `${320 + 200}px`, `${1920 - 200}px`),
