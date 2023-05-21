@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684644201411" clover="3.2.0">
-  <project timestamp="1684644201411" name="All files">
-    <metrics statements="59" coveredstatements="59" conditionals="17" coveredconditionals="17" methods="20" coveredmethods="20" elements="96" coveredelements="96" complexity="0" loc="59" ncloc="59" packages="2" files="6" classes="6"/>
+<coverage generated="1684646419703" clover="3.2.0">
+  <project timestamp="1684646419703" name="All files">
+    <metrics statements="68" coveredstatements="68" conditionals="17" coveredconditionals="17" methods="26" coveredmethods="26" elements="111" coveredelements="111" complexity="0" loc="68" ncloc="68" packages="2" files="6" classes="6"/>
     <package name="src">
-      <metrics statements="45" coveredstatements="45" conditionals="13" coveredconditionals="13" methods="18" coveredmethods="18"/>
+      <metrics statements="54" coveredstatements="54" conditionals="13" coveredconditionals="13" methods="24" coveredmethods="24"/>
       <file name="clampify.ts" path="/Users/artginzburg/css-clamper/src/clampify.ts">
-        <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+        <metrics statements="25" coveredstatements="25" conditionals="4" coveredconditionals="4" methods="11" coveredmethods="11"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="20" count="3" type="stmt"/>
@@ -13,15 +13,24 @@
         <line num="26" count="38" type="cond" truecount="1" falsecount="0"/>
         <line num="30" count="22" type="stmt"/>
         <line num="37" count="22" type="stmt"/>
-        <line num="39" count="22" type="stmt"/>
-        <line num="43" count="22" type="stmt"/>
-        <line num="53" count="22" type="stmt"/>
-        <line num="54" count="44" type="stmt"/>
-        <line num="55" count="22" type="stmt"/>
-        <line num="56" count="44" type="stmt"/>
+        <line num="46" count="22" type="stmt"/>
+        <line num="48" count="22" type="stmt"/>
+        <line num="50" count="22" type="stmt"/>
         <line num="58" count="22" type="stmt"/>
         <line num="60" count="22" type="stmt"/>
-        <line num="71" count="22" type="stmt"/>
+        <line num="64" count="22" type="stmt"/>
+        <line num="65" count="22" type="stmt"/>
+        <line num="67" count="22" type="stmt"/>
+        <line num="68" count="22" type="stmt"/>
+        <line num="69" count="22" type="stmt"/>
+        <line num="74" count="22" type="stmt"/>
+        <line num="75" count="44" type="stmt"/>
+        <line num="76" count="22" type="stmt"/>
+        <line num="77" count="44" type="stmt"/>
+        <line num="81" count="22" type="stmt"/>
+        <line num="85" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="89" count="22" type="stmt"/>
+        <line num="99" count="22" type="stmt"/>
       </file>
       <file name="createClamper.ts" path="/Users/artginzburg/css-clamper/src/createClamper.ts">
         <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>

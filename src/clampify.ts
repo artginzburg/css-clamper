@@ -34,12 +34,6 @@ export function clampify(
     maxViewport,
   ].map(toPx);
 
-  const variablePart = (maxValuePx - minValuePx) / (maxViewportPx - minViewportPx);
-
-  const constant = parseFloat(
-    numPxToRem(maxValuePx - maxViewportPx * variablePart).toFixed(defaultFractionDigits)
-  );
-
   const [extendedMinValuePx, extendedMaxValuePx] = extendSizeInClampify(
     minValuePx,
     maxValuePx,
@@ -49,20 +43,54 @@ export function clampify(
     extendMaxViewport
   );
 
-  /** Sorted values, so that the actual min and max are always at the start and the end respectively. Otherwise, `clamp()` stops working when values are swapped. */
-  const [minValueWithRem, maxValueWithRem] = [extendedMinValuePx, extendedMaxValuePx]
-    .map(num => toFixedNumberDefault(numPxToRem(num)))
-    .sort((a, b) => a - b)
-    .map((size) => `${size}rem` as const);
+  const [minValueWithRem, maxValueWithRem] = prepareSizesBorBuildingClamp(extendedMinValuePx, extendedMaxValuePx);
 
-  const variablePartWithVw = `${shiftDecimalPointRightByTwo(variablePart)}vw` as const;
+  const preferredValueForClamp = getPreferredValueAsString(maxValuePx, minValuePx, maxViewportPx, minViewportPx);
 
   return buildCssClamp(
     minValueWithRem,
-    `${constant ? (`${constant}rem + ` as const) : ''}${variablePartWithVw}`,
+    preferredValueForClamp,
     maxValueWithRem
   );
 }
+
+function getPreferredValueAsString(maxValuePx: number, minValuePx: number, maxViewportPx: number, minViewportPx: number) {
+  const { constantAsString, variablePartWithVw } = preparePreferredValue(maxValuePx, minValuePx, maxViewportPx, minViewportPx);
+
+  return `${constantAsString}${variablePartWithVw}` as const;
+}
+
+function preparePreferredValue(maxValuePx: number, minValuePx: number, maxViewportPx: number, minViewportPx: number) {
+  const variablePart = (maxValuePx - minValuePx) / (maxViewportPx - minViewportPx);
+  const variablePartWithVw = formatVariablePartToString(variablePart);
+
+  const constant = getConstantPart(maxValuePx, maxViewportPx, variablePart);
+  const constantAsString = formatConstantPartToString(constant);
+  return { constantAsString, variablePartWithVw } as const;
+}
+
+/** Sorted values, so that the actual min and max are always at the start and the end respectively. Otherwise, `clamp()` stops working when values are swapped. */
+function prepareSizesBorBuildingClamp(extendedMinValuePx: number, extendedMaxValuePx: number) {
+  return [extendedMinValuePx, extendedMaxValuePx]
+    .map(num => toFixedNumberDefault(numPxToRem(num)))
+    .sort((a, b) => a - b) // It's very important that sorting happens after all number transformations are finished.
+    .map((size) => `${size}rem` as const);
+}
+
+function formatVariablePartToString(variablePart: number) {
+  return `${shiftDecimalPointRightByTwo(variablePart)}vw` as const;
+}
+
+function formatConstantPartToString(constant: number) {
+  return constant ? (`${constant}rem + ` as const) : '';
+}
+
+function getConstantPart(maxValuePx: number, maxViewportPx: number, variablePart: number) {
+  return parseFloat(
+    numPxToRem(maxValuePx - maxViewportPx * variablePart).toFixed(defaultFractionDigits)
+  );
+}
+
 /**
  * "point" as in "after the decimal point"
  * @example 0.005 => 0.5
