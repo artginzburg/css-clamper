@@ -38,9 +38,9 @@ function extendSize(
 ) {
   if (!extendViewportBorderTo) return sizeBorderPx;
 
-  const extendMinViewportPx = toPx(extendViewportBorderTo);
-  const addedMinViewport = extendMinViewportPx - viewportBorderPx;
-  const addedSize = addedMinViewport / howViewportRelatesToSize;
-  const newMinSize = sizeBorderPx + addedSize;
-  return newMinSize;
+  const extendViewportPx = toPx(extendViewportBorderTo);
+  const addedViewport = extendViewportPx - viewportBorderPx;
+  const addedSize = addedViewport / howViewportRelatesToSize;
+  const newSize = sizeBorderPx + addedSize;
+  return newSize;
 }
