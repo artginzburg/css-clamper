@@ -146,4 +146,4 @@ Refer to [docs/maintain.md](./docs/maintain.md)
 
 [browserslist]: https://browsersl.ist
 [postcss]: https://postcss.org
-[clampify()]: ./src/index.ts#L20
+[clampify()]: ./src/clampify.ts#L20
