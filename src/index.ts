@@ -4,8 +4,8 @@ import {
   buildCssClamp,
   defaultFractionDigits,
   numPxToRem,
+  toFixedNumberDefault,
   toPx,
-  toRem,
 } from './internals.js';
 
 /**
@@ -51,8 +51,7 @@ export function clampify(
 
   /** Sorted values, so that the actual min and max are always at the start and the end respectively. Otherwise, `clamp()` stops working when values are swapped. */
   const [minValueWithRem, maxValueWithRem] = [extendedMinValuePx, extendedMaxValuePx]
-    .map((size) => `${size}px` as const)
-    .map(toRem) // it's simpler than using `numPxToRem` because `toRem` already incorporates `toFixedNumberDefault`
+    .map(num => toFixedNumberDefault(numPxToRem(num)))
     .sort((a, b) => a - b)
     .map((size) => `${size}rem` as const);
 

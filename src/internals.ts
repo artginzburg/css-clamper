@@ -24,12 +24,6 @@ function numRemToPx(num: number) {
   return num * amountOfPxInRem;
 }
 
-export function toRem(value: string) {
-  return toFixedNumberDefault(
-    // isRem(value) here never evaluates to true because of the current logic of the code. That may change in the future. I'm gonna polish the algorithms after everything works better than expected.
-    isRem(value) ? parseUnitValue(value).num : numPxToRem(parseUnitValue(value).num),
-  );
-}
 export function toPx(value: string) {
   return toFixedNumberDefault(
     isRem(value) ? numRemToPx(parseUnitValue(value).num) : parseUnitValue(value).num,
@@ -41,7 +35,7 @@ export function toPx(value: string) {
  *
  * - Previously had `?` (optional chaining operator) after `+value`, but this was removed due to the coverage report saying that it's an uncovered logic branch. The function is used in such conditions that would never allow for this logic branch to be covered.
  */
-function toFixedNumberDefault(value: number) {
+export function toFixedNumberDefault(value: number) {
   return +value.toFixed(defaultFractionDigits);
 }
 
