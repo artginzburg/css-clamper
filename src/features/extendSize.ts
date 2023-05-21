@@ -12,24 +12,19 @@ export function extendSizeInClampify(
 
   if (extendMinViewport || extendMaxViewport) {
     const howViewportRelatesToSize = (maxViewportPx - minViewportPx) / (maxValuePx - minValuePx);
-    const newMaxSize = extendSize(
+
+    extendedMaxValuePx = extendSize(
       howViewportRelatesToSize,
       extendMaxViewport,
       maxViewportPx,
       maxValuePx,
     );
-    if (newMaxSize) {
-      extendedMaxValuePx = newMaxSize;
-    }
-    const newMinSize = extendSize(
+    extendedMinValuePx = extendSize(
       howViewportRelatesToSize,
       extendMinViewport,
       minViewportPx,
       minValuePx,
     );
-    if (newMinSize) {
-      extendedMinValuePx = newMinSize;
-    }
   }
 
   return [extendedMinValuePx, extendedMaxValuePx];
@@ -41,11 +36,11 @@ function extendSize(
   viewportBorderPx: number,
   sizeBorderPx: number,
 ) {
-  if (extendViewportBorderTo) {
-    const extendMinViewportPx = toPx(extendViewportBorderTo);
-    const addedMinViewport = extendMinViewportPx - viewportBorderPx;
-    const addedSize = addedMinViewport / howViewportRelatesToSize;
-    const newMinSize = sizeBorderPx + addedSize;
-    return newMinSize;
-  }
+  if (!extendViewportBorderTo) return sizeBorderPx;
+
+  const extendMinViewportPx = toPx(extendViewportBorderTo);
+  const addedMinViewport = extendMinViewportPx - viewportBorderPx;
+  const addedSize = addedMinViewport / howViewportRelatesToSize;
+  const newMinSize = sizeBorderPx + addedSize;
+  return newMinSize;
 }
