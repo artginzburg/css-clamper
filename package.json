@@ -1,6 +1,6 @@
 {
   "name": "css-clamper",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Cozy responsive sizes for CSS-in-JS",
   "keywords": [
     "css clamp",
