@@ -61,7 +61,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '24'
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
@@ -86,7 +86,7 @@ jobs:
       - name: Set up Node 18
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 24
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -109,7 +109,7 @@ jobs:
       - name: Set up Node 18
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 24
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
